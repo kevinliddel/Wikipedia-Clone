@@ -1,0 +1,40 @@
+MDBoxLayout:
+    orientation: 'vertical'
+    padding: dp(10)
+
+    MDBoxLayout:
+        adaptive_height: True
+
+        MDTextField:
+            id: fld
+            hint_text: 'Search'
+
+        MDIconButton:
+            icon: 'magnify'
+            on_release: app.search(fld.text)
+
+    RelativeLayout:
+            
+        MDSpinner:
+            id: rc_spin
+            size_hint: None, None
+            size: dp(46), dp(46)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            active: False
+
+        ScrollView:
+
+            MDList:
+
+                MDLabel:
+                    id: title
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    bold: True
+                    markup: True
+                    halign: 'center'
+
+                MDLabel:
+                    id: summary
+                    size_hint_y: None
+                    height: self.texture_size[1]
